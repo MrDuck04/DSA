@@ -1,29 +1,32 @@
 //Assignment Task 01: Row Rotation Policy
+import java.util.*;
 class AssgnTask1{
 
     //Complete this method so that it gives the Expected Output
     //YOU ONLY HAVE TO SUBMIT THIS METHOD, NO OTHER DRIVER CODE
-    public static String[][] rotation( String[][] matrix ) {
-
-        String[] temp = matrix[matrix.length - 1];
-        for (int i = matrix.length - 1; i > 0; i--) {
-            matrix[i] = matrix[i - 1];
-        }
-        matrix[0] = temp;
-        return matrix;     
-    }
-
     public static Integer rowRotation( Integer examWeek, String[][] matrix ){
-        rotation(rotation(matrix));
-        for (String[] row : matrix) {
-            for (String element : row) {
-                System.out.print("| " + element + " ");
+        for(int i = 1; i < examWeek; i++){
+            String[] temp = matrix[matrix.length - 1];
+
+            for(int j = matrix.length -1; j >=0; j--){
+                if(j == 0){
+                    matrix[j] = temp;
+                } else {
+                    matrix[j] = matrix[j - 1];
+                }
             }
-            System.out.println("|");
         }
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j].equals("AA")) {
+        // Arr.print2D(matrix);
+       for(int i = 0; i < matrix.length; i++){
+            
+            for(int j = 0; j < matrix[i].length; j++){
+                System.out.print(matrix[i][j] + " | ");
+            }
+            System.out.println();
+        }
+        for(int i = 0; i < matrix.length; i++){ 
+            for(int j = 0; j < matrix[i].length; j++){
+                if(matrix[i][j].equals("AA")){
                     return i+1;
                 }
             }
