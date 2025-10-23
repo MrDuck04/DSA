@@ -6,11 +6,15 @@ class AssgnTask2{
     public static Integer[][] compressMatrix( Integer[][] matrix ){
 
         //For this task you'll need to create new 2D array
-        
+        Integer[][] m2 = new Integer[matrix.length/2][matrix[0].length/2];
         //TO DO
-
+        for(int i = 0, k = 0; i < matrix.length; i+=2, k++){
+            for(int j = 0, l = 0; j < matrix[0].length; j+=2, l++){
+                m2[k][l] = matrix[i][j] + matrix[i][j+1] + matrix[i+1][j] + matrix[i+1][j+1];
+            }
+        }
         //remove the line below and return the newly created Compressed 2D matrix
-        return null;
+        return m2;
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
