@@ -3,12 +3,45 @@ class AssgnTask3{
 
     //Complete this method so that it gives the Expected Output
     //YOU ONLY HAVE TO SUBMIT THIS METHOD, NO OTHER DRIVER CODE
-    public static void playGame( Integer[][] arena ){
+   public static void playGame( Integer[][] arena ){
 
         //For this task you don't need to create any new 2D array
         //just print the result inside the function
         
         //TO DO
+        int points = 0;
+        //int rows = arena.length;
+        for (int r = 0; r < arena.length; r++) {
+            
+            //int cols = arena[r].length;
+            for (int c = 0; c < arena[r].length; c++) {
+
+                if (arena[r][c] != 0 && arena[r][c] % 50 == 0) {
+                    
+                    if (r - 1 >= 0 && c < arena[r-1].length && arena[r-1][c] == 2) {
+                        points += 2;
+                    }
+                    
+                    if (r + 1 < arena.length && c < arena[r+1].length && arena[r+1][c] == 2) {
+                        points += 2;
+                    }
+                    
+                    if (c - 1 >= 0 && arena[r][c-1] == 2) {
+                        points += 2;
+                    }
+                    
+                    if (c + 1 < arena[r].length && arena[r][c+1] == 2) {
+                        points += 2;
+                    }
+                }
+            }
+        }
+
+        if (points >= 10) {
+            System.out.print("Points Gained: " + points + ". Your team has survived the game.\n");
+        } else {
+            System.out.print("Points Gained: " + points + ". Your team is out.\n");
+        }
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
