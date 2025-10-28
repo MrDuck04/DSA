@@ -5,9 +5,41 @@ public class AssignmentTask2{
     // MUST SUBMIT this method
     public static Node organizeBooks(Node head, Integer[] popularity) {
         
-        //TO DO
-
-        return null; // Remove this when you're ready to return the new head
+        int i = 0;
+       //implemeting merge sort in descending order even though this was not discussed in class good job on who ever made the pookie course outline
+       //i hate my life
+       //i hope apnara burger khawaben ekdin randomly
+       //its 2 am and im coding this
+       // i should be sleeping
+       //im hungry
+       //and poor
+       //i miss my family
+       //this is ai generated btw but true
+       //at this point even talking to myself using ai prewritten stuff feels good
+       //gonna try to swap the values instead of nodes
+       while (i < popularity.length) {
+            Node current = head;
+            Node nextNode = current.next;
+            int idx = 0;
+            while(nextNode != null){
+                if(popularity[idx] < popularity[idx + 1]){
+                    //swap values
+                    Object tempElem = current.elem;
+                    current.elem = nextNode.elem;
+                    nextNode.elem = tempElem;
+                    int tempPop = popularity[idx];
+                    popularity[idx] = popularity[idx + 1];
+                    popularity[idx + 1] = tempPop;
+                }
+                current = nextNode;
+                nextNode = nextNode.next;
+                idx++;
+            } 
+            //honestly i would have given up if this was the night before submission at this point{ 2:17 am }
+        i++;
+        }
+       //well it works now, please don't ask me how {2:36 am}
+       return head;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
