@@ -1,4 +1,4 @@
-// AssignmentTask1: Building Blocks
+
 public class AssignmentTask1 {
 
     //Two heads are being passed onto this method
@@ -7,11 +7,34 @@ public class AssignmentTask1 {
     public static String checkSimilar( Node building1, Node building2 ){
         
         //You're not suppose to create any new Linked List for this task
+        Node head1 = building1;
+        Node head2 = building2;
+        boolean flag = true;
         
         //TODO
+        if(head1.elem == null || head2.elem == null){
+            return null;
+        }
+        while(head1 != null && head2 != null){
+            if((head1.elem).equals(head2.elem) ){
+                head1 = head1.next;
+                head2 = head2.next;
+            } else {
+                flag = false;
+                break;
+            }
+            //if one is null and the other is not   
+            if(head1 == null ^ head2 == null){
+                flag = false;
+                break;
+            }
+        }
+            
+            
+        
 
         //Once you're ready to return the String delete the following line
-        return null;
+        return flag ? "Similar" : "Not Similar";
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
